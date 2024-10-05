@@ -1,0 +1,47 @@
+Cloned one kannan board three tier application 
+
+#####Then given the following command to build as image 
+
+````
+docker-compose build 
+docker-compose up
+````
+Once image is built , push to docker hub 
+Create three repo in docker hub for three different image
+````
+docker login 
+````
+the above command for getting the hub registry 
+
+push to docker hub 
+
+Create kubernetes cluster 
+````
+minikube start 
+````
+Cluster created 
+
+Then deploy the yml files 
+````
+kubectl apply -f filename.yml 
+
+Create service for it 
+
+kubectl apply -f filename.yml
+````
+In that service give 
+
+type:loadbalancer 
+
+Autoscaling by giving 5 replicasets and loadbalancing by service yml file 
+````
+minikube service servicename --url 
+````
+for checking that url and whether its connected s
+````
+kubectl get deployments 
+kubectl get pods 
+````
+Follow the below link for alert message like slack (kubewatch) in kubernetes 
+
+https://betterprogramming.pub/monitor-your-kubernetes-resources-with-kubewatch-d40ecf420f28
