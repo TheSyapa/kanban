@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kanban-ui
+  labels:
+    app: kanban
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-pod
+  template:
+    metadata:
+      labels:
+        app: my-pod
+    spec:
+      containers:
+      - name: kanban-ui
+        image: kousalyag/kannanboard-app:image1
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: http
+            containerPort: 4200
+        resources:
+          limits:
+            cpu: 0.2
+            memory: "200Mi"
+     
+

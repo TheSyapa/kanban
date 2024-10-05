@@ -1,0 +1,14 @@
+apiVersion: v1                # API version
+kind: Service                 # Type of the kubernetes resource
+metadata:                     
+  name: kanban-app            # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: kanban-app
+spec:                         
+  type: LoadBalancer           # The service will be exposed by opening a Port on each node and proxying it. 
+  selector:
+    app: server            # The service exposes Pods with label `app=kanban-app`
+  ports:                      # Forward incoming connections on port 8080 to the target port 8080
+  - name: http
+    port: 8080
+    targetPort: 8080

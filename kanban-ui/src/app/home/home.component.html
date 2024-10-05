@@ -1,0 +1,17 @@
+<div class="page-container" lang="ru">
+  <div class="page-name">
+    <h1>Канбан Проекты</h1>
+  </div>
+  <div>
+    <button mat-raised-button (click)="openDialogForNewProject()">Новый проект</button>
+  </div>
+
+  <div class="main-card">
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let project of projects" routerLink="/kanbans/{{project.id}}">
+        <p class="project-name">{{project.name}}</p>
+      </a>
+    </mat-nav-list>
+  </div>
+</div>
+

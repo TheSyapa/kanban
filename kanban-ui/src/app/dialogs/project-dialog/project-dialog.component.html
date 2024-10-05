@@ -1,0 +1,27 @@
+<div class="dialog-name" lang="ru">
+  <h1 mat-dialog-name>Создание новой доски</h1>
+</div>
+
+
+<mat-dialog-content [formGroup]="form" class="dialog-content">
+
+  <mat-form-field class="project-name">
+    <input matInput
+           placeholder="Name"
+           formControlName="name"
+           required
+           pattern="[a-zA-Zа-яА-Я0-9 ]+">
+    <mat-error *ngIf="form.get('name').hasError('required')">
+      Поле обязательно для заполнения
+    </mat-error>
+    <mat-error *ngIf="form.get('name').hasError('pattern')">
+      Поле должно содержать только буквы, цифры и пробелы
+    </mat-error>
+    <br>
+  </mat-form-field>
+
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+  </mat-dialog-actions>
+</mat-dialog-content>

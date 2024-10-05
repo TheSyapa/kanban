@@ -1,0 +1,2 @@
+ALTER TABLE card
+ADD COLUMN kanban_id INTEGER  REFERENCES project(id);

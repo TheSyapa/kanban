@@ -1,0 +1,50 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-name {
+  margin-bottom: 20px;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.form-section h2 {
+  margin-top: 0;
+}
+
+.mat-form-field {
+  margin-bottom: 10px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.description-block {
+  margin-top: 20px;
+}
+
+.description-area {
+  height: 100px;
+  resize: vertical;
+  border-radius: 10px;
+}
+
+.mat-dialog-actions {
+  margin-top: 20px;
+}
+
+.mat-raised-button {
+  margin-right: 10px;
+  border-radius: 10px;
+}

@@ -1,0 +1,84 @@
+<!-- диалоговое окно -->
+<div class="dialog-container">
+  <!-- заголовок диалогового окна -->
+  <div class="dialog-name" lang="ru">
+    <h1 mat-dialog-name>{{ dialogName || ''}}</h1>
+  </div>
+
+  <!-- содержимое диалогового окна -->
+  <mat-dialog-content [formGroup]="form" class="dialog-content">
+    <!-- разделы форм -->
+    <div class="form-section">
+      <h2>Основная информация</h2>
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" class="card-name" [value]="card?.name || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Select type" formControlName="type" [value]="card?.type || ''">
+          <mat-option value="FRONTEND">FRONTEND</mat-option>
+          <mat-option value="BACKEND">BACKEND</mat-option>
+          <mat-option value="TEST">TEST</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Select status" formControlName="status" [value]="card?.status || ''">
+          <mat-option value="CREATED">Новая</mat-option>
+          <mat-option value="TODO">Готов к работе</mat-option>
+          <mat-option value="INFO">Требуется информация</mat-option>
+          <mat-option value="INPROGRESS">В работе</mat-option>
+          <mat-option value="REVIEW">Ревью</mat-option>
+          <mat-option value="DONE">Выполнено</mat-option>
+          <mat-option value="CANCEL">Отклонено</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="form-section">
+      <h2>Участники</h2>
+      <mat-form-field>
+        <input matInput placeholder="Author" formControlName="author" [value]="card?.author.name || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Worker" formControlName="worker" [value]="card?.worker.name || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Tester" formControlName="tester" [value]="card?.tester.name || ''">
+      </mat-form-field>
+    </div>
+
+    <div class="form-section">
+      <h2>Время</h2>
+      <mat-form-field>
+        <input matInput placeholder="timeCreated" formControlName="timeCreated" readonly
+               [value]="card?.timeCreated | date: 'dd-MM-yyyy' || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="timeTaken" formControlName="timeTaken" readonly
+               [value]="card?.timeTaken | date: 'dd-MM-yyyy' || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="timeDeadline" formControlName="timeDeadline"
+               [value]="card?.timeDeadline | date: 'dd-MM-yyyy' || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="timeFactEndTime" formControlName="timeFactEndTime" readonly
+               [value]="card?.timeFactEndTime | date: 'dd-MM-yyyy' || ''">
+      </mat-form-field>
+    </div>
+
+    <div class="description-block">
+      <h2>Описание</h2>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description" class="description-area"
+                  [value]="card?.description || ''"></textarea>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+
+  <!-- действия диалогового окна -->
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+  </mat-dialog-actions>
+</div>

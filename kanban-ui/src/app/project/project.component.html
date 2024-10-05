@@ -1,0 +1,30 @@
+<div class="page-container" lang="ru">
+  <div class="page-name">
+    <h1>{{project?.name}}</h1>
+  </div>
+  <div>
+    <button mat-raised-button (click)="openDialogForNewCard()">Новая карточка</button>
+  </div>
+  <div class="project-board">
+
+    <div class="list-container" *ngFor="let list of lists">
+      <h2>{{ list.name }}</h2>
+      <div
+        cdkDropList
+        [id]="list.id"
+        [cdkDropListData]="list.data"
+        [cdkDropListConnectedTo]="list.connectedTo"
+        class="board-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="sticky-note" *ngFor="let card of list.data" cdkDrag
+             [style.background-color]="card.color"
+             (dblclick)="openCardDialog(card)"
+             [id]="card.id">
+          {{card.name}}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

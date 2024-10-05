@@ -1,0 +1,2 @@
+ALTER TABLE card
+ADD COLUMN status VARCHAR(20);

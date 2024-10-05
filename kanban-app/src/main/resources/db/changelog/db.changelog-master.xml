@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="1" author="spbgut">
+        <sqlFile path="01_init_user.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+    </changeSet>
+
+    <changeSet id="2" author="spbgut">
+        <sqlFile path="02_init_role.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+    </changeSet>
+
+    <changeSet id="3" author="spbgut">
+        <sqlFile path="03_init_user_role.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+    </changeSet>
+
+
+
+    <changeSet id="4" author="spbgut">
+        <sqlFile path="04_init_kanban.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+
+        <comment>Create table with Kanaban info</comment>
+    </changeSet>
+
+    <changeSet id="5" author="spbgut">
+        <sqlFile path="05_init_task.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+
+        <comment>Create table with card info</comment>
+    </changeSet>
+
+    <changeSet id="6" author="spbgut">
+        <sqlFile path="06_kanban_column.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+
+        <comment>Add kanban_id column to card table</comment>
+    </changeSet>
+
+    <changeSet id="7" author="spbgut">
+        <sqlFile path="07_task_status.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"/>
+
+        <comment>Add status column to card table</comment>
+    </changeSet>
+
+
+</databaseChangeLog>
+

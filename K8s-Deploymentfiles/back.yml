@@ -1,0 +1,36 @@
+apiVersion: apps/v1           # API version
+kind: Deployment              # Type of kubernetes resource
+metadata:
+  name: kanban-app            # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: server
+spec:
+  replicas: 3                 # No. of replicas/pods to run in this deployment
+  selector:
+    matchLabels:              # The deployment applies to any pods mayching the specified labels
+      app: server
+  template:                   # Template for creating the pods in this deployment
+    metadata:
+      labels:                 # Labels that will be applied to each Pod in this deployment
+        app: server
+    spec:                     # Spec for the containers that will be run in the Pods
+      containers:
+      - name: kanban-app
+        image: kousalyag/kannanboard-app-database:app-v2
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: DB_SERVER
+          value: "kanban-postgres"
+        - name: POSTGRES_DB
+          value: "kanban"
+        - name: POSTGRES_USER
+          value: "kanban"
+        - name: POSTGRES_PASSWORD
+          value: "kanban"
+        ports:
+          - name: http
+            containerPort: 8080 # The port that the container exposes
+        resources:
+          limits:
+            cpu: 0.2
+            memory: "200Mi"
